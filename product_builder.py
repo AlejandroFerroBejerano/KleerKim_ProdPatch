@@ -29,8 +29,8 @@ for x in range(len(products)-1):
   prod_desc = prod_desc.replace("\n"," ")
   #descripcion corta
   brief_desc = prod_desc.split(".")[0]
-  slug = name.replace(" ","-")
-  post_title = name
+  slug = p_name.replace(" ","-")
+  post_title = p_name
   p_id = str(1521 + x)
   line = p_id + " | " + p_name + " | " + post_title + " | " + slug + " | " + brief_desc + " | " + prod_desc + "\n"
   result.write(line)
