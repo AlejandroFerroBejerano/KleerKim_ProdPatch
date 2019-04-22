@@ -12,15 +12,24 @@ data = data.replace("E-mail: tecnico@kleer-kim.com Web site: kleer-kim.com","NEW
 data = data.replace("Tel. 91 895 65 10 Fax. 91 895 66 08","")
 products=data.split("NEWPRODUCT")
 len(products)
-result = open(dfilename,"w+",encoding="latin-1")
+result = open(dfilename,"w+", encoding="latin-1")
 for x in range(len(products)-1):
   print ("Processing Line: " + str(x) +"\n")
   #descripcion
   name = products[x].split("PICTOGRAMAS\n")[0].split("\n")[3]
+  name = name.replace(" - ","-")
+  name = name.replace("- ","-")
+  name = name.replace(" -","-")
+  name = name.replace(" – ","-")
+  name = name.replace("– ","-")
+  name = name.replace(" –","-")
+  name = name.replace(" – "," ")
+
   prod_desc = products[x].split("DESCRIPCION\n")[1].split("APLICACIONES\n")[0]
   prod_desc = prod_desc.replace("\n"," ")
   #descripcion corta
   brief_desc = prod_desc.split(".")[0]
-  result.write(name + " | " + brief_desc + " | " + prod_desc+ "\n")
+  line = name + " | " + brief_desc + " | " + prod_desc + "\n"
+  result.write(line)
 
 result.close()
