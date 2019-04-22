@@ -16,20 +16,23 @@ result = open(dfilename,"w+", encoding="latin-1")
 for x in range(len(products)-1):
   print ("Processing Line: " + str(x) +"\n")
   #descripcion
-  name = products[x].split("PICTOGRAMAS\n")[0].split("\n")[3]
-  name = name.replace(" - ","-")
-  name = name.replace("- ","-")
-  name = name.replace(" -","-")
-  name = name.replace(" – ","-")
-  name = name.replace("– ","-")
-  name = name.replace(" –","-")
-  name = name.replace(" – "," ")
+  p_name = products[x].split("PICTOGRAMAS\n")[0].split("\n")[3]
+  p_name = name.replace(" - ","-")
+  p_name = name.replace("- ","-")
+  p_name = name.replace(" -","-")
+  p_name = name.replace(" – ","-")
+  p_name = name.replace("– ","-")
+  p_name = name.replace(" –","-")
+  p_name = name.replace(" – "," ")
 
   prod_desc = products[x].split("DESCRIPCION\n")[1].split("APLICACIONES\n")[0]
   prod_desc = prod_desc.replace("\n"," ")
   #descripcion corta
   brief_desc = prod_desc.split(".")[0]
-  line = name + " | " + brief_desc + " | " + prod_desc + "\n"
+  slug = name.replace(" ","-")
+  post_title = name
+  p_id = str(1521 + x)
+  line = p_id + " | " + p_name + " | " + post_title + " | " + slug + " | " + brief_desc + " | " + prod_desc + "\n"
   result.write(line)
 
 result.close()
