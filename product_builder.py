@@ -1,5 +1,5 @@
 import codecs
-sfilename = "pdf_unido_txt.txt"
+sfilename = "ultimas_fichas_unido_v2.txt"
 #sfilename = "txt_3_primeros.txt"
 dfilename = "result.txt"
 f = open(sfilename, "r", encoding="latin-1")
@@ -16,7 +16,7 @@ result = open(dfilename,"w+", encoding="latin-1")
 for x in range(len(products)-1):
   print ("Processing Line: " + str(x) +"\n")
   #descripcion
-  p_name = products[x].split("PICTOGRAMAS\n")[0].split("\n")[3]
+  p_name = products[x].split("PICTOGRAMAS\n")[0].split("\n")[5]
   p_name = p_name.replace(" - ","-")
   p_name = p_name.replace("- ","-")
   p_name = p_name.replace(" -","-")
