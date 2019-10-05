@@ -1,7 +1,7 @@
 import codecs
 import csv
 import json
-csvFilePath = "prod.csv"
+csvFilePath = "wc_product-buena.csv"
 jsonFilePath = "result.csv"
 #sfilename = "txt_3_primeros.txt"
 data ={}
